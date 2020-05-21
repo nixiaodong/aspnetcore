@@ -5,6 +5,7 @@ $ErrorActionPreference = 'stop'
 
 $repoRoot = Resolve-Path "$PSScriptRoot/../.."
 
+$Configuration = if ($ci) { 'Release' } else { 'Debug' }
 & "$repoRoot\build.ps1" -ci:$ci -buildNative
 
 $msbuildEngine = 'dotnet'

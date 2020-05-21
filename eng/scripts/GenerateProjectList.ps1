@@ -3,6 +3,7 @@ param(
 )
 $ErrorActionPreference = 'stop'
 
+$Configuration = if ($ci) { 'Release' } else { 'Debug' }
 $repoRoot = Resolve-Path "$PSScriptRoot/../.."
 $msbuildEngine = 'dotnet'
 
