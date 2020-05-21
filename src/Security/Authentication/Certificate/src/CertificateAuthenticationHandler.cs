@@ -54,6 +54,7 @@ namespace Microsoft.AspNetCore.Authentication.Certificate
             // You only get client certificates over HTTPS
             if (!Context.Request.IsHttps)
             {
+                Logger.NotHttps();
                 return AuthenticateResult.NoResult();
             }
 
