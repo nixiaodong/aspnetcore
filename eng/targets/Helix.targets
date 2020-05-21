@@ -83,7 +83,7 @@ Usage: dotnet msbuild /t:Helix src/MyTestProject.csproj
     </PropertyGroup>
   </Target>
 
-  <Target Name="_PublishHelixArchive" DependsOnTargets="Publish" >
+  <Target Name="_PublishHelixArchive" DependsOnTargets="PublishOnly" >
     <ZipDirectory Condition="'$(HelixUseArchive)' == 'true'" SourceDirectory="$(PublishDir)" DestinationFile="$(PublishDir)../$(HelixTestName).zip" Overwrite="true" />
     <RemoveDir Condition="'$(HelixUseArchive)' == 'true'" Directories="$(PublishDir)" />
   </Target>
